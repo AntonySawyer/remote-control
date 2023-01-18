@@ -1,0 +1,9 @@
+{
+  "execMap": {
+    "ts": "ts-node-esm"
+  },
+  "watch": [
+    "**"
+  ],
+  "ext": ".ts"
+}

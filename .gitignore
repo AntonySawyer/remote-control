@@ -1,3 +1,6 @@
+.env
+/build/
+
 # dependencies
 /node_modules
 
