@@ -1,6 +1,12 @@
 # RSSchool NodeJS websocket task template
 > Static http server and base task packages. 
 > By default WebSocket client tries to connect to the 8080 port.
+### Default ports
+> If you want to use other ports - create `.env` file in root folder and copy `.env.sample` values.
+> 
+> `WS_PORT` - port listening by websocket. Default is `8080`. 
+>
+> `STATIC_CONTENT_PORT` - port, used for static content. Default is `8181`
 
 ## Installation
 1. Clone/download repo
