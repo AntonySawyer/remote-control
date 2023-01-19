@@ -1,6 +1,6 @@
 import { mouse, Point } from '@nut-tree/nut-js';
-import { COMMAND } from '../constants/command';
 
+import { COMMAND } from '../constants/command';
 import { CommandHandler } from '../interfaces/command';
 
 const getCoordinatesMessage = ({ x, y }: Point): string => (

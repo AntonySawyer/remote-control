@@ -1,11 +1,11 @@
 import WebSocket from 'ws';
 
-export const handleError = (error: Error, websocket: WebSocket): void => {
-  const upbreakableSpace = '\u00A0';
-  const messageForFront = error.message.split(' ').join(upbreakableSpace);
+import { formatMessageForFront } from './formatMessageForFront';
+import { logger } from './logging';
 
-  // TODO: are we need to send this message here?
-  // eslint-disable-next-line no-console
-  console.error(error);
+export const handleError = (error: Error, websocket: WebSocket): void => {
+  const messageForFront = formatMessageForFront(error.message);
+
+  logger(error);
   websocket.send(messageForFront);
 };
