@@ -1,4 +1,4 @@
-import WebSocket, { RawData, WebSocketServer } from 'ws';
+import WebSocket, { createWebSocketStream, RawData, WebSocketServer } from 'ws';
 
 import { handleError } from './utils/handleError';
 import { resolveCommand } from './utils/resolveCommand';
@@ -6,19 +6,21 @@ import { resolveCommand } from './utils/resolveCommand';
 export const initWebsocketServer = (port: number) => {
   const wss = new WebSocketServer({ port });
 
-  wss.on('connection', (ws: WebSocket) => {
+  wss.on('connection', (websocket: WebSocket) => {
     console.log('Connected to Websocket Server.');
 
-    ws.on('message', (data: RawData) => {
+    const webSocketStream = createWebSocketStream(websocket, { decodeStrings: false });
+
+    webSocketStream.on('data', async (data: RawData) => {
       try {
         const message: string = data.toString();
-        const response = resolveCommand(message);
+        const response = await resolveCommand(message);
 
         if (response) {
-          ws.send(response);
+          webSocketStream.write(response);
         }
       } catch (error) {
-        handleError(error as Error, ws);
+        handleError(error as Error, websocket);
       }
     });
   });

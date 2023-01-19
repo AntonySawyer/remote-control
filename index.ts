@@ -19,3 +19,5 @@ console.log(`Start static http server on the ${STATIC_CONTENT_PORT} port!`);
 httpServer.listen(STATIC_CONTENT_PORT);
 
 initWebsocketServer(Number(WS_PORT));
+
+// TODO: streams

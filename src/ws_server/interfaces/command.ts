@@ -6,7 +6,7 @@ export interface IParsedCommand {
 }
 
 export interface CommandHandler<TReturn> {
-  (args?: string[]): TReturn;
+  (args?: string[]): Promise<TReturn>;
 }
 
 export type CommandToHandlerMap = {
