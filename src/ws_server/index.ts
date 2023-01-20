@@ -17,13 +17,13 @@ export const initWebsocketServer = (port: number) => {
     webSocketStream.on('data', async (data: RawData) => {
       try {
         const message: string = data.toString();
-        logger(`> ${message}`);
+        logger(message);
 
         const response = await resolveCommand(message);
 
         if (response) {
-          logger(`< ${response}`);
           webSocketStream.write(response);
+          logger(response, false, message);
         } else {
           const messageForFront = formatMessageForFront(message);
           webSocketStream.write(messageForFront);

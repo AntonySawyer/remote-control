@@ -1,6 +1,6 @@
 import { mouse, Point, straightTo } from '@nut-tree/nut-js';
 
-import { DrawFigureHandler, RectangeOptions } from '../../interfaces/draw';
+import { DrawFigureHandler, RectangeOptions } from '../../../interfaces/draw';
 
 export const drawRectangle: DrawFigureHandler<RectangeOptions> = async ({ height, width }) => {
   const { x, y } = await mouse.getPosition();

@@ -5,8 +5,8 @@ import {
   Region,
 } from '@nut-tree/nut-js';
 
-import { convertDegIntoRadians } from '../../utils/convertDegIntoRadians';
-import { CircleOptions, DrawFigureHandler } from '../../interfaces/draw';
+import { convertDegIntoRadians } from '../../../utils/convertDegIntoRadians';
+import { CircleOptions, DrawFigureHandler } from '../../../interfaces/draw';
 
 export const drawCircle: DrawFigureHandler<CircleOptions> = async ({ radius }) => {
   const startPoint = await mouse.getPosition();

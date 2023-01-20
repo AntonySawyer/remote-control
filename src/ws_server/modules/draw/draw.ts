@@ -1,11 +1,11 @@
-import { COMMAND } from '../constants/command';
-import { WRONG_ARGUMENT } from '../constants/error';
-import { CommandHandler } from '../interfaces/command';
+import { COMMAND } from '../../constants/command';
+import { WRONG_ARGUMENT } from '../../constants/error';
+import { CommandHandler } from '../../interfaces/command';
 import {
   DrawCommands,
   DrawFigureHandler,
   FigureOption,
-} from '../interfaces/draw';
+} from '../../interfaces/draw';
 import { drawCircle, drawRectangle, drawSquare } from './shape';
 
 const getFigureHandler = (command: COMMAND): DrawFigureHandler => {
