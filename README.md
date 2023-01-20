@@ -35,3 +35,7 @@ Command | Description
 `npm run start` | App served @ `http://localhost:8181` without nodemon
 
 **Note**: replace `npm` with `yarn` in `package.json` if you use yarn.
+
+&nbsp;
+# Important notice 
+Depends of OS you use - it's possible that different additional libraries or settings whould be applied for correct work of "get part of screen image" functional. Make sure that `@nut-tree/nut-js` capturing works fine in your system, for complex testing this app feature.
