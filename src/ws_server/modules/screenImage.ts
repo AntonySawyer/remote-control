@@ -20,10 +20,9 @@ export const getScreenImage: CommandHandler<string> = async () => {
   const regionToCapture = new Region(left, top, DEFAULT_IMAGE_SIZE_PX, DEFAULT_IMAGE_SIZE_PX);
 
   const grabbedImageRaw = await screen.grabRegion(regionToCapture);
+  const grabbedImageRawRGB = await grabbedImageRaw.toRGB();
 
-  const jimpImage = new Jimp(DEFAULT_IMAGE_SIZE_PX, DEFAULT_IMAGE_SIZE_PX);
-  jimpImage.bitmap.data = grabbedImageRaw.data;
-
+  const jimpImage = new Jimp({ ...grabbedImageRawRGB });
   const base64 = await jimpImage.getBase64Async(Jimp.MIME_PNG);
 
   const result = getResponseForFront(base64);
