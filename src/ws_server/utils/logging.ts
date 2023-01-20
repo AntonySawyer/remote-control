@@ -12,20 +12,22 @@ const getLogForPrintScreen = (base64: string): string => (
   `${COMMAND.PRINT_SCREEN} send result as base64 string. Content length: ${base64.length}.`
 );
 
-const getMessageForOutput = (message: string, command?: string): string => {
-  let messageForLog: string = message;
+const getMessagesForOutput = (message: string, command?: string): string[] => {
+  const messagesForLog: string[] = [];
 
   switch (command) {
     case COMMAND.PRINT_SCREEN:
-      messageForLog = getLogForPrintScreen(message);
+      messagesForLog.push(getLogForPrintScreen(message));
+      messagesForLog.push(message);
 
       break;
 
     default:
+      messagesForLog.push(message);
       break;
   }
 
-  return messageForLog;
+  return messagesForLog;
 };
 
 /* eslint-disable no-console */
@@ -39,10 +41,12 @@ export const logger = (message: string | Error, isInput = true, command?: string
   }
 
   if (!isInput) {
-    const messageForOutput = getMessageForOutput(message, command);
-    const wrappedMessageForOutput = wrapOutputMessage(messageForOutput);
+    const messagesForOutput = getMessagesForOutput(message, command);
+    messagesForOutput.forEach((messageLine) => {
+      const wrappedMessageForOutput = wrapOutputMessage(messageLine);
 
-    console.log(wrappedMessageForOutput);
+      console.log(wrappedMessageForOutput);
+    });
 
     return;
   }

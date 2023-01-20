@@ -21,3 +21,4 @@ httpServer.listen(STATIC_CONTENT_PORT);
 initWebsocketServer(Number(WS_PORT));
 
 // TODO: streams
+// TODO: remove useless TODO comments after check at Windows

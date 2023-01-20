@@ -18,5 +18,5 @@ export type CommandToHandlerMap = {
   [COMMAND.MOUSE_LEFT]: CommandHandler<void>;
   [COMMAND.MOUSE_RIGHT]: CommandHandler<void>;
   [COMMAND.MOUSE_UP]: CommandHandler<void>;
-  [COMMAND.PRINT_SCREEN]: CommandHandler<void>;
+  [COMMAND.PRINT_SCREEN]: CommandHandler<string>;
 };
