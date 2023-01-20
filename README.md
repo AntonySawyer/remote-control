@@ -1,6 +1,12 @@
 # RSSchool NodeJS websocket task template
 > Static http server and base task packages. 
 > By default WebSocket client tries to connect to the 8080 port.
+### Default ports
+> If you want to use other ports - create `.env` file in root folder and copy `.env.sample` values.
+> 
+> `WS_PORT` - port listening by websocket. Default is `8080`. 
+>
+> `STATIC_CONTENT_PORT` - port, used for static content. Default is `8181`
 
 ## Installation
 1. Clone/download repo
@@ -29,3 +35,7 @@ Command | Description
 `npm run start` | App served @ `http://localhost:8181` without nodemon
 
 **Note**: replace `npm` with `yarn` in `package.json` if you use yarn.
+
+&nbsp;
+# Important notice 
+Depends of OS you use - it's possible that different additional libraries or settings whould be applied for correct work of "get part of screen image" functional. Make sure that `@nut-tree/nut-js` capturing works fine in your system, for complex testing this app feature.
