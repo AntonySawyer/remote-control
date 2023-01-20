@@ -1,6 +1,7 @@
 import { COMMAND } from '../constants/command';
 import { COMMAND_NOT_EXIST_MESSAGE } from '../constants/error';
 import { CommandToHandlerMap, IParsedCommand } from '../interfaces/command';
+import { handleDraw } from '../modules/draw';
 import { handleMove } from '../modules/mouseMove';
 import { getMousePosition } from '../modules/mousePosition';
 
@@ -10,15 +11,9 @@ const COMMAND_TO_HANDLER_MAP: CommandToHandlerMap = {
   [COMMAND.MOUSE_DOWN]: handleMove,
   [COMMAND.MOUSE_LEFT]: handleMove,
   [COMMAND.MOUSE_RIGHT]: handleMove,
-  [COMMAND.DRAW_CIRCLE]: async (): Promise<void> => {
-    throw new Error('Function not implemented.');
-  },
-  [COMMAND.DRAW_RECTANGLE]: async (): Promise<void> => {
-    throw new Error('Function not implemented.');
-  },
-  [COMMAND.DRAW_SQUARE]: async (): Promise<void> => {
-    throw new Error('Function not implemented.');
-  },
+  [COMMAND.DRAW_CIRCLE]: handleDraw,
+  [COMMAND.DRAW_RECTANGLE]: handleDraw,
+  [COMMAND.DRAW_SQUARE]: handleDraw,
   [COMMAND.PRINT_SCREEN]: async (): Promise<void> => {
     throw new Error('Function not implemented.');
   },
